@@ -38,9 +38,6 @@ const PublicUsers: CollectionConfig = {
             label: 'Email',
         }
     ],
-    hooks: {
-        beforeChange: [sendOTP]
-    }
 }
 
 export default PublicUsers;
