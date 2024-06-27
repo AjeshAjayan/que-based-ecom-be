@@ -1,5 +1,5 @@
 import { CollectionBeforeChangeHook } from "payload/types";
-import { PublicUser } from "../type/publicUser";
+import { PublicUser } from "../type/PublicUser";
 
 export const sendOTP: CollectionBeforeChangeHook<PublicUser> = async ({
     data,

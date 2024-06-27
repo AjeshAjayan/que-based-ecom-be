@@ -3,7 +3,7 @@ import { validatePhoneNumber } from "./validate/validatePhoneNumber";
 import { sendOTP } from "./hooks/sendOTP";
 import { validateFirstName, validateLastName } from "./validate/validateName";
 
-const PublicUsers: CollectionConfig = {
+const PublicUsersSchema: CollectionConfig = {
     slug: 'publicUsers',
     admin: {
         useAsTitle: "firstName"
@@ -36,8 +36,23 @@ const PublicUsers: CollectionConfig = {
             name: 'email',
             type:'email',
             label: 'Email',
+        },
+        {
+            name: 'otp',
+            type:'text',
+            label: 'OTP',
+        },
+        {
+            name: 'otpExpiry',
+            type:'text',
+            label: 'OTP Expiry',
+        },
+        {
+            name: 'validated',
+            type:'checkbox',
+            label: 'Validated',
         }
     ],
 }
 
-export default PublicUsers;
+export default PublicUsersSchema;

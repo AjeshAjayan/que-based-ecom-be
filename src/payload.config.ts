@@ -7,7 +7,7 @@ import { slateEditor } from '@payloadcms/richtext-slate'
 import { buildConfig } from 'payload/config'
 
 import Users from './collections/Users'
-import PublicUsers from './collections/PublicUsers/PublicUsers'
+import PublicUsers from './collections/PublicUsers/PublicUsersSchema'
 
 export default buildConfig({
   admin: {

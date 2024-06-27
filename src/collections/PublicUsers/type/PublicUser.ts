@@ -4,4 +4,6 @@ export type PublicUser = {
     firstName: string;
     lastName: string;
     email: string;
+    otp: string;
+    otpExpiry: string;
 }
