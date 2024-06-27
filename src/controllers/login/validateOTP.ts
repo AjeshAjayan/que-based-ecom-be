@@ -4,7 +4,7 @@ import PublicUsersSchema from "../../collections/PublicUsers/PublicUsersSchema";
 import payload from "payload";
 
 export const validateOTPController: RequestHandler = async (req: express.Request, res: express.Response) => {
-    // try{
+    try{
         const otp = req.body.otp;
         const phoneNumber = process.env.PHONE_COUNTRY_CODE + req.body.phoneNumber;
 
@@ -29,8 +29,8 @@ export const validateOTPController: RequestHandler = async (req: express.Request
             res.status(200).json({ message: 'OTP is invalid' });
         }
 
-    // } catch(err) {
-    //     res.status(500).json({ error: err, message: 'Something went wrong' });
-    // }
+    } catch(err) {
+        res.status(500).json({ error: err, message: 'Something went wrong' });
+    }
 
 }
