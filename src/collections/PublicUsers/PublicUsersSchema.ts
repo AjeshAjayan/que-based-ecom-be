@@ -1,6 +1,5 @@
 import { CollectionConfig } from "payload/types";
 import { validatePhoneNumber } from "./validate/validatePhoneNumber";
-import { sendOTP } from "./hooks/sendOTP";
 import { validateFirstName, validateLastName } from "./validate/validateName";
 
 const PublicUsersSchema: CollectionConfig = {
@@ -16,7 +15,6 @@ const PublicUsersSchema: CollectionConfig = {
             unique: true,
             required: true,
             validate: validatePhoneNumber,
-            saveToJWT: true,
         },
         {
             name: 'firstName',

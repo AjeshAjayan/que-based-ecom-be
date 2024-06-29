@@ -13,6 +13,17 @@ export default buildConfig({
   admin: {
     user: Users.slug,
     bundler: webpackBundler(),
+    webpack: (config) => {
+
+      config.resolve.fallback = {
+        stream: require.resolve('stream-browserify'),
+        util: require.resolve('util/'),
+        crypto: require.resolve("crypto-browserify"),
+        vm: require.resolve("vm-browserify")
+      }
+
+      return config;
+    }
   },
   editor: slateEditor({}),
   collections: [Users, PublicUsers],
@@ -26,4 +37,8 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI,
   }),
+  csrf: [
+    // whitelist of domains to allow cookie auth from
+    'http://localhost:3000',
+  ],
 })
