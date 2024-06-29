@@ -10,19 +10,20 @@ export const validateOTPController: RequestHandler = async (req: express.Request
 
         // code to validate otp
         const PublicUsersModel = payload.db.collections[PublicUsersSchema.slug]
-        const publicUsers = await PublicUsersModel.findOne({ phoneNumber }).exec();
+        const publicUser = await PublicUsersModel.findOne({ phoneNumber }).exec();
 
-        if(!publicUsers) {
+        if(!publicUser) {
             // Phone number is not registered
-            res.status(404).json({ message: 'Who are you' });
+            res.status(404).json({ message: 'User not found' });
         }
 
-        if(publicUsers.otp === otp) {
-            const updatePublicUsersModel = PublicUsersModel.findOneAndUpdate({ phoneNumber }, { validated: true})
-            const updatedPublicUser = await updatePublicUsersModel.exec();
-            if(updatedPublicUser.validated) {
+        if(publicUser.otp === otp) {
+            const publicUser = await PublicUsersModel.findOne({ phoneNumber }).exec();
+            if(publicUser.validated) {
                 res.status(200).json({ message: "Already validated" });
             } else {
+                const updatePublicUsersModel = PublicUsersModel.findOneAndUpdate({ phoneNumber }, { validated: true})
+                const updatedPublicUser = await updatePublicUsersModel.exec();
                 res.status(200).json({ message: 'OTP is valid', data: updatedPublicUser});
             }
         } else {

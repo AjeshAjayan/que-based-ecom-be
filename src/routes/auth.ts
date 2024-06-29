@@ -3,12 +3,12 @@ import { loginController } from '../controllers/login/login';
 import { sendOTPController } from '../controllers/login/sendOTP';
 import { validateOTPController } from '../controllers/login/validateOTP';
 
-const loginRouter = express.Router();
+const authRouter = express.Router();
 
-loginRouter.get('/', loginController);
+authRouter.get('/', loginController);
 
-loginRouter.post('/sendOTP', sendOTPController);
+authRouter.post('/sendOTP', sendOTPController);
 
-loginRouter.post('/validateOTP', validateOTPController);
+authRouter.post('/validateOTP', validateOTPController);
 
-export default loginRouter;
+export default authRouter;
