@@ -15,6 +15,7 @@ import { ProductVideosSchema } from './collections/productVideos/productVideosSc
 import { MaterialsSchema } from './collections/materials/MaterialsSchema'
 import { SizesSchema } from './collections/sizes/SizesSchema'
 import { ColorsSchema } from './collections/colors/ColorsSchema'
+import { collections } from './collections/collections'
 
 export default buildConfig({
   admin: {
@@ -33,7 +34,7 @@ export default buildConfig({
     }
   },
   editor: slateEditor({}),
-  collections: [Users, PublicUsersSchema, ProductsSchema, CategoriesSchema, ProductImagesSchema, ProductVideosSchema, MaterialsSchema, SizesSchema, ColorsSchema],
+  collections,
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },
