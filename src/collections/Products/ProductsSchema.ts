@@ -1,5 +1,8 @@
 import { CollectionConfig } from "payload/types";
-import { categoriesSchema } from "../categories/categoriesSchema";
+import { CategoriesSchema } from "../categories/CategoriesSchema";
+import { MaterialsSchema } from "../materials/MaterialsSchema";
+import { ColorsSchema } from "../colors/ColorsSchema";
+import { SizesSchema } from "../sizes/SizesSchema";
 
 export const ProductsSchema: CollectionConfig = {
     slug: "products",
@@ -30,7 +33,7 @@ export const ProductsSchema: CollectionConfig = {
             name: "category",
             type: "relationship",
             label: "Category",
-            relationTo: categoriesSchema.slug
+            relationTo: CategoriesSchema.slug
         },
         {
             name: 'isOutOfStock',
@@ -52,13 +55,13 @@ export const ProductsSchema: CollectionConfig = {
             type: 'upload',
             required: true,
             // TODO: configure upload
-            relationTo: 'images'
+            relationTo: 'productImages'
         },
         {
             name: 'videos',
             type: 'upload',
             // TODO: configure upload
-            relationTo: 'videos'
+            relationTo: 'productVideos'
         },
         {
             name: 'moq',
@@ -70,22 +73,20 @@ export const ProductsSchema: CollectionConfig = {
             name: 'material',
             type: 'relationship',
             label: 'Material',
-            // TODO: create relationship
-            relationTo: 'materials'
+            relationTo: MaterialsSchema.slug
         },
         {
             name: 'size',
             type: 'relationship',
             label: 'Size',
             // TODO: create relationship
-            relationTo: 'sizes'
+            relationTo: SizesSchema.slug,
         },
         {
             name: 'color',
             type: 'relationship',
             label: 'Color',
-            // TODO: create relationship
-            relationTo: 'colors'
+            relationTo: ColorsSchema.slug
         },
         {
             name: 'colorTextToDisplay',
@@ -108,7 +109,7 @@ export const ProductsSchema: CollectionConfig = {
             label: 'Featured',
         }, 
         {
-            name: 'isNew',
+            name: 'isNewProduct',
             type: 'checkbox',
             label: 'New',
         }, 

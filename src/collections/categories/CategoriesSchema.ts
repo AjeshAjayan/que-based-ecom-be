@@ -1,6 +1,6 @@
 import { CollectionConfig } from "payload/types";
 
-export const categoriesSchema: CollectionConfig = {
+export const CategoriesSchema: CollectionConfig = {
     slug: 'categories',
     admin: {
         useAsTitle: 'name'

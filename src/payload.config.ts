@@ -7,7 +7,14 @@ import { slateEditor } from '@payloadcms/richtext-slate'
 import { buildConfig } from 'payload/config'
 
 import Users from './collections/Users'
-import PublicUsers from './collections/PublicUsers/PublicUsersSchema'
+import PublicUsersSchema from './collections/PublicUsers/PublicUsersSchema'
+import { ProductsSchema } from './collections/Products/ProductsSchema'
+import { CategoriesSchema } from './collections/categories/CategoriesSchema'
+import { ProductImagesSchema } from './collections/productImages/ProductImages'
+import { ProductVideosSchema } from './collections/productVideos/productVideosSchema'
+import { MaterialsSchema } from './collections/materials/MaterialsSchema'
+import { SizesSchema } from './collections/sizes/SizesSchema'
+import { ColorsSchema } from './collections/colors/ColorsSchema'
 
 export default buildConfig({
   admin: {
@@ -26,7 +33,7 @@ export default buildConfig({
     }
   },
   editor: slateEditor({}),
-  collections: [Users, PublicUsers],
+  collections: [Users, PublicUsersSchema, ProductsSchema, CategoriesSchema, ProductImagesSchema, ProductVideosSchema, MaterialsSchema, SizesSchema, ColorsSchema],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },
