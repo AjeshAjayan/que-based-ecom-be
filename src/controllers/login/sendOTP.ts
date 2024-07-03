@@ -2,7 +2,7 @@ import { RequestHandler } from "express";
 import * as express from "express";
 import { sendSMS } from "../../utils/sendSMS";
 import payload from "payload";
-import PublicUsers from "../../collections/PublicUsers/PublicUsersSchema";
+import PublicUsers from "../../collections/publicUsers/PublicUsersSchema";
 import crypto from "crypto";
 
 require('dotenv').config();

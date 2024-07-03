@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
 import * as express from "express";
 import payload from "payload";
-import PublicUsersSchema from "../../collections/PublicUsers/PublicUsersSchema";
+import PublicUsersSchema from "../../collections/publicUsers/PublicUsersSchema";
 import { generateJWTToken } from "../../utils/generateJWTToken";
 
 export const registrationController: RequestHandler = async (req: express.Request, res: express.Response) => {

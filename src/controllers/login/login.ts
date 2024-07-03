@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
 import express from "express";
 import payload from "payload";
-import PublicUsers from "../../collections/PublicUsers/PublicUsersSchema";
+import PublicUsers from "../../collections/publicUsers/PublicUsersSchema";
 
 export const loginController: RequestHandler = async (req: express.Request, res: express.Response) => {
     try {

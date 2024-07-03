@@ -1,5 +1,5 @@
 import { ProductsSchema } from "./Products/ProductsSchema";
-import PublicUsersSchema from "./PublicUsers/PublicUsersSchema";
+import PublicUsersSchema from "./publicUsers/PublicUsersSchema";
 import Users from "./Users";
 import { CategoriesSchema } from "./categories/CategoriesSchema";
 import { ColorsSchema } from "./colors/ColorsSchema";

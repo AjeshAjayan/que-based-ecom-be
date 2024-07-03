@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 import * as express from "express";
-import PublicUsersSchema from "../../collections/PublicUsers/PublicUsersSchema";
+import PublicUsersSchema from "../../collections/publicUsers/PublicUsersSchema";
 import payload from "payload";
 
 export const validateOTPController: RequestHandler = async (req: express.Request, res: express.Response) => {
