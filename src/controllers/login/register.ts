@@ -16,7 +16,8 @@ export const registrationController: RequestHandler = async (req: express.Reques
         const PublicUsersModel = payload.db.collections[PublicUsersSchema.slug];
         const updatedPublicUser = await PublicUsersModel.findOneAndUpdate(
             { phoneNumber },
-            { firstName, lastName, email }
+            { firstName, lastName, email },
+            { new: true }
         ).exec()
 
 
