@@ -7,14 +7,6 @@ import { slateEditor } from '@payloadcms/richtext-slate'
 import { buildConfig } from 'payload/config'
 
 import Users from './collections/Users'
-import PublicUsersSchema from './collections/PublicUsers/PublicUsersSchema'
-import { ProductsSchema } from './collections/Products/ProductsSchema'
-import { CategoriesSchema } from './collections/categories/CategoriesSchema'
-import { ProductImagesSchema } from './collections/productImages/ProductImages'
-import { ProductVideosSchema } from './collections/productVideos/productVideosSchema'
-import { MaterialsSchema } from './collections/materials/MaterialsSchema'
-import { SizesSchema } from './collections/sizes/SizesSchema'
-import { ColorsSchema } from './collections/colors/ColorsSchema'
 import { collections } from './collections/collections'
 
 export default buildConfig({
