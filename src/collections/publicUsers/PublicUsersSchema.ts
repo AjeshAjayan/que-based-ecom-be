@@ -49,6 +49,18 @@ const PublicUsersSchema: CollectionConfig = {
             name: 'validated',
             type:'checkbox',
             label: 'Validated',
+            defaultValue: false,
+        },
+        {
+            name: 'isBlocked',
+            type:'checkbox',
+            label: 'Blocked',
+            defaultValue: false,
+        },
+        {
+            name: 'reasonForBlock',
+            type:'textarea',
+            label: 'Reason For Block',
         }
     ],
 }

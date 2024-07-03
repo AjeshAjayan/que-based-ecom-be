@@ -27,6 +27,10 @@ export const registrationController: RequestHandler = async (req: express.Reques
          */
         if (!updatedPublicUser) {
             res.status(404).json({ message: 'User not found' });
+        } else if (updatedPublicUser.isBlocked) {
+            res.status(401).json(
+                { message: "User has been blocked", data: { reasonForBlock: updatedPublicUser.reasonForBlock } }
+            )
         } else {
             /**
              * check if OTP is validated, if validated then send 201
