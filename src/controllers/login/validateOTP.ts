@@ -40,14 +40,14 @@ export const validateOTPController: RequestHandler = async (req: express.Request
                 const { token, parsedPublicUser } = getParsedToken(publicUser)
                 const updatePublicUsersModel = PublicUsersModel.findOneAndUpdate({ phoneNumber }, { validated: true }, { new: true });
                 await updatePublicUsersModel.exec();
-                res.status(200).json({
+                res.status(201).json({
                     message: 'OTP is valid', data: {
                         ...parsedPublicUser, token
                     }
                 });
             }
         } else {
-            res.status(200).json({ message: 'OTP is invalid' });
+            res.status(401).json({ message: 'OTP is invalid' });
         }
     } catch (err) {
         res.status(500).json({ error: err, message: 'Something went wrong' });

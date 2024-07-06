@@ -37,8 +37,4 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI,
   }),
-  csrf: [
-    // whitelist of domains to allow cookie auth from
-    'http://localhost:3000',
-  ],
-})
+});
