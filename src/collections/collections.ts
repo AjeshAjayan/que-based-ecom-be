@@ -7,6 +7,7 @@ import { MaterialsSchema } from "./materials/MaterialsSchema";
 import { ProductImagesSchema } from "./productImages/ProductImages";
 import { ProductVideosSchema } from "./productVideos/productVideosSchema";
 import { SizesSchema } from "./sizes/SizesSchema";
+import { SubCategoriesSchema } from "./subCategories/subCategoriesSchema";
 
 export const collections = [
     Users, 
@@ -17,5 +18,6 @@ export const collections = [
     ProductVideosSchema, 
     MaterialsSchema, 
     SizesSchema, 
-    ColorsSchema
+    ColorsSchema,
+    SubCategoriesSchema,
 ];

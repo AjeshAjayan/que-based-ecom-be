@@ -1,13 +1,21 @@
 import { CollectionConfig } from "payload/types";
-import { CategoriesSchema } from "../categories/CategoriesSchema";
 import { MaterialsSchema } from "../materials/MaterialsSchema";
 import { ColorsSchema } from "../colors/ColorsSchema";
 import { SizesSchema } from "../sizes/SizesSchema";
+import { SubCategoriesSchema } from "../subCategories/subCategoriesSchema";
 
 export const ProductsSchema: CollectionConfig = {
     slug: "products",
     admin: {
         useAsTitle: 'title'
+    },
+    access: {
+        read: ({ req }) => {
+            /**
+             * is a public API
+             */
+            return true;
+        }
     },
     fields: [
         {
@@ -38,11 +46,12 @@ export const ProductsSchema: CollectionConfig = {
             type: 'row',
             fields: [
                 {
-                    name: "category",
+                    name: "subCategory",
                     type: "relationship",
-                    label: "Category",
-                    relationTo: CategoriesSchema.slug,
+                    label: "Sub Category",
+                    relationTo: SubCategoriesSchema.slug,
                     required: true,
+                    hasMany: true,
                 },
                 {
                     name: 'expiryDate',
@@ -252,3 +261,5 @@ export const ProductsSchema: CollectionConfig = {
         }
     ]
 } 
+
+// TODO: implement product level video and image

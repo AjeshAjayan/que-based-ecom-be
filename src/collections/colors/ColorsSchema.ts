@@ -2,6 +2,9 @@ import { CollectionConfig } from "payload/types";
 
 export const ColorsSchema: CollectionConfig = {
     slug: 'colors',
+    admin: {
+        useAsTitle: 'name'
+    },
     fields: [
         {
             name: 'name',
