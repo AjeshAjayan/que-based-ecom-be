@@ -5,6 +5,14 @@ export const CategoriesSchema: CollectionConfig = {
     admin: {
         useAsTitle: 'name'
     },
+    access: {
+        read: ({ req }) => {
+            /**
+             * is a public API
+             */
+            return true;
+        }
+    },
     fields: [
         {
             name: 'name',

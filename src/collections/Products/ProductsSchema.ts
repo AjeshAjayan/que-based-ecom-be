@@ -43,6 +43,28 @@ export const ProductsSchema: CollectionConfig = {
             ]
         },
         {
+            name: 'imagesAndVideos',
+            label: 'Images and videos',
+            type: 'array',
+            fields: [
+                {
+                    type: 'row',
+                    fields: [
+                        {
+                            name: 'image',
+                            type: 'upload',
+                            relationTo: 'productImages',
+                        },
+                        {
+                            name: 'videos',
+                            type: 'upload',
+                            relationTo: 'productVideos',
+                        },
+                    ]
+                }
+            ]
+        },
+        {
             type: 'row',
             fields: [
                 {
@@ -114,21 +136,25 @@ export const ProductsSchema: CollectionConfig = {
                     ],
                 },
                 {
-                    type: 'row',
+                    name: 'imagesAndVideos',
+                    label: 'Images and videos',
+                    type: 'array',
                     fields: [
                         {
-                            name: 'images',
-                            type: 'upload',
-                            required: true,
-                            // TODO: configure upload
-                            relationTo: 'productImages'
-                        },
-                        {
-                            name: 'videos',
-                            type: 'upload',
-                            // TODO: configure upload
-                            relationTo: 'productVideos'
-                        },
+                            type: 'row',
+                            fields: [
+                                {
+                                    name: 'image',
+                                    type: 'upload',
+                                    relationTo: 'productImages',
+                                },
+                                {
+                                    name: 'videos',
+                                    type: 'upload',
+                                    relationTo: 'productVideos',
+                                },
+                            ]
+                        }
                     ]
                 },
                 {
@@ -158,7 +184,6 @@ export const ProductsSchema: CollectionConfig = {
                             name: 'variantPrice',
                             type: "number",
                             label: "Variant Price (if applicable)",
-                            required: true,
                         },
                     ],
                 },
@@ -261,5 +286,3 @@ export const ProductsSchema: CollectionConfig = {
         }
     ]
 } 
-
-// TODO: implement product level video and image

@@ -2,6 +2,17 @@ import { CollectionConfig } from "payload/types";
 
 export const MaterialsSchema: CollectionConfig = {
     slug:'materials',
+    access: {
+        read: ({ req }) => {
+            /**
+             * is a public API
+             */
+            return true;
+        }
+    },
+    admin: {
+        useAsTitle: 'name'
+    },
     fields: [
         {
             name: 'name',
@@ -14,11 +25,5 @@ export const MaterialsSchema: CollectionConfig = {
             type: 'richText',
             label: 'Description',
         },
-        {
-            name: 'quality',
-            type: 'text',
-            required: true,
-            label: 'Quality',
-        }
     ]
 }
