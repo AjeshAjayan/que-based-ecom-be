@@ -56,7 +56,7 @@ export const ProductsSchema: CollectionConfig = {
                             relationTo: 'productImages',
                         },
                         {
-                            name: 'videos',
+                            name: 'video',
                             type: 'upload',
                             relationTo: 'productVideos',
                         },
@@ -149,7 +149,7 @@ export const ProductsSchema: CollectionConfig = {
                                     relationTo: 'productImages',
                                 },
                                 {
-                                    name: 'videos',
+                                    name: 'video',
                                     type: 'upload',
                                     relationTo: 'productVideos',
                                 },
