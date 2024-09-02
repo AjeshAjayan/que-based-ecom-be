@@ -3,6 +3,7 @@ import * as express from "express";
 import PublicUsersSchema from "../../collections/publicUsers/PublicUsersSchema";
 import payload from "payload";
 import { generateJWTToken } from "../../utils/generateJWTToken";
+import { PublicUser } from "../../collections/publicUsers/type/PublicUser";
 
 export const validateOTPController: RequestHandler = async (req: express.Request, res: express.Response) => {
     try {
@@ -11,7 +12,7 @@ export const validateOTPController: RequestHandler = async (req: express.Request
 
         // code to validate otp
         const PublicUsersModel = payload.db.collections[PublicUsersSchema.slug]
-        const publicUser = await PublicUsersModel.findOne({ phoneNumber }).exec();
+        const publicUser: PublicUser = await PublicUsersModel.findOne({ phoneNumber }).exec();
 
         if (!publicUser) {
             // Phone number is not registered
@@ -24,8 +25,7 @@ export const validateOTPController: RequestHandler = async (req: express.Request
                 }
             )
         } else if (publicUser.otp === otp) {
-            const publicUser = await PublicUsersModel.findOne({ phoneNumber }).exec();
-            if (publicUser.validated) {
+            if (publicUser.validated && publicUser.firstName && publicUser.lastName && publicUser.dob) {
                 const { token, parsedPublicUser } = getParsedToken(publicUser)
                 res.status(200).json({
                     message: "Already validated", data: {

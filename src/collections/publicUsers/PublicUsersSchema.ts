@@ -36,6 +36,11 @@ const PublicUsersSchema: CollectionConfig = {
             label: 'Email',
         },
         {
+            name: 'dob',
+            type: 'date',
+            label: 'Date of Birth',
+        },
+        {
             name: 'otp',
             type:'text',
             label: 'OTP',

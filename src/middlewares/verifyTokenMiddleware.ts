@@ -11,7 +11,6 @@ export const verifyTokenMiddleware: RequestHandler = (req: express.Request, res:
             (req as any).user = decodedToken;
             next();
         } catch (err) {
-
             // catch execute mostly when the token is invalid
             res.status(401).json({ error: err.message });
         }

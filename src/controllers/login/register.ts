@@ -3,20 +3,20 @@ import * as express from "express";
 import payload from "payload";
 import PublicUsersSchema from "../../collections/publicUsers/PublicUsersSchema";
 import { generateJWTToken } from "../../utils/generateJWTToken";
+import { PublicUser } from "../../collections/publicUsers/type/PublicUser";
 
 export const registrationController: RequestHandler = async (req: express.Request, res: express.Response) => {
     try {
-
-
         const phoneNumber = process.env.PHONE_COUNTRY_CODE + req.body.phoneNumber;
         const firstName = req.body.firstName;
         const lastName = req.body.lastName;
         const email = req.body.email;
+        const dob = req.body.dob;
 
         const PublicUsersModel = payload.db.collections[PublicUsersSchema.slug];
-        const updatedPublicUser = await PublicUsersModel.findOneAndUpdate(
+        const updatedPublicUser: PublicUser = await PublicUsersModel.findOneAndUpdate(
             { phoneNumber },
-            { firstName, lastName, email },
+            { firstName, lastName, email, dob: new Date(dob) },
             { new: true }
         ).exec()
 
@@ -53,7 +53,7 @@ export const registrationController: RequestHandler = async (req: express.Reques
                     }
                 )
             } else {
-                res.status(401).json({ message: "OTP is not validated" });
+                res.status(403).json({ message: "OTP is not validated" });
             }
         }
     } catch (err) {
