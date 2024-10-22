@@ -8,6 +8,10 @@ import { ProductImagesSchema } from "./productImages/ProductImages";
 import { ProductVideosSchema } from "./productVideos/productVideosSchema";
 import { SizesSchema } from "./sizes/SizesSchema";
 import { SubCategoriesSchema } from "./subCategories/subCategoriesSchema";
+import { OrderMasterSchema } from "./orderMaster/OrderMaster";
+import { OrderChildSchema } from "./orderChild/OrderChild";
+import { PaymentsSchema } from "./payments/Payments";
+import { QueueSchema } from "./queue/Queue";
 
 export const collections = [
     Users, 
@@ -19,5 +23,9 @@ export const collections = [
     PublicUsersSchema, 
     ProductsSchema, 
     ProductImagesSchema, 
-    ProductVideosSchema, 
+    ProductVideosSchema,
+    OrderMasterSchema,
+    OrderChildSchema,
+    PaymentsSchema,
+    QueueSchema,
 ];
