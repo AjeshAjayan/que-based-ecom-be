@@ -1,11 +1,11 @@
 import { CollectionConfig } from "payload/types";
 import { ProductsSchema } from "../Products/ProductsSchema";
-import { OrderMasterSchema } from "../orderMaster/OrderMaster";
+import { OrderMasterSchema } from "../orderMaster/OrderMasterSchema";
 import { SizesSchema } from "../sizes/SizesSchema";
 import { ColorsSchema } from "../colors/ColorsSchema";
 import { MaterialsSchema } from "../materials/MaterialsSchema";
 import PublicUsersSchema from "../publicUsers/PublicUsersSchema";
-import { PaymentsSchema } from "../payments/Payments";
+import { PaymentsSchema } from "../payments/PaymentsSchema";
 
 export const OrderChildSchema: CollectionConfig = {
     slug: "order-child",
@@ -65,11 +65,6 @@ export const OrderChildSchema: CollectionConfig = {
             required: true,
         },
         {
-            name: "totalQuantity",
-            type: "number",
-            required: true,
-        },
-        {
             name: "discount",
             type: "number",
         },
@@ -83,7 +78,6 @@ export const OrderChildSchema: CollectionConfig = {
             name: 'payments',
             type: 'relationship',
             relationTo: PaymentsSchema.slug,
-            required: true,
             hasMany: true,
         },
         {

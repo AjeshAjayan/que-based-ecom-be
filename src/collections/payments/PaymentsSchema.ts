@@ -1,5 +1,6 @@
 import { CollectionConfig } from "payload/types";
-import { OrderChildSchema } from "../orderChild/OrderChild";
+import { OrderChildSchema } from "../orderChild/OrderChildSchema";
+import PublicUsersSchema from "../publicUsers/PublicUsersSchema";
 
 export const PaymentsSchema: CollectionConfig = {
     slug: 'payments',
@@ -11,7 +12,6 @@ export const PaymentsSchema: CollectionConfig = {
                 { label: 'Credit Card', value: 'creditCard' },
                 { label: 'UPI', value: 'upi' },
             ],
-            required: true,
         },
         {
             name: 'paymentStatus',
@@ -27,7 +27,12 @@ export const PaymentsSchema: CollectionConfig = {
         {
             name: 'transactionId',
             type: 'text',
+        },
+        {
+            name: 'publicUser',
+            type: 'relationship',
             required: true,
+            relationTo: PublicUsersSchema.slug
         },
     ]
 }
