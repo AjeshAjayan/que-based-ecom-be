@@ -2,7 +2,7 @@ import express from 'express';
 import { loginController } from '../controllers/login/login';
 import { sendOTPController } from '../controllers/login/sendOTP';
 import { validateOTPController } from '../controllers/login/validateOTP';
-import { verifyTokenMiddleware } from '../middlewares/verifyTokenMiddleware';
+import { verifyTokenMiddleware } from '../middleware/verifyTokenMiddleware';
 
 const authRouter = express.Router();
 
