@@ -11,13 +11,13 @@ import { SubCategoriesSchema } from "./subCategories/subCategoriesSchema";
 
 export const collections = [
     Users, 
+    SizesSchema, 
+    MaterialsSchema, 
+    ColorsSchema,
+    CategoriesSchema, 
+    SubCategoriesSchema,
     PublicUsersSchema, 
     ProductsSchema, 
-    CategoriesSchema, 
     ProductImagesSchema, 
     ProductVideosSchema, 
-    MaterialsSchema, 
-    SizesSchema, 
-    ColorsSchema,
-    SubCategoriesSchema,
 ];
